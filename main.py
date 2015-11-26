@@ -5,4 +5,6 @@ from storage.io import general
 def main():
     print ("dsad")
 
-general.func()
+io = general()
+#io.initPage(2)
+io.write()
