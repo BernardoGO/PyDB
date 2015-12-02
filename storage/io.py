@@ -6,6 +6,8 @@ __PAGE_SUFFIX__ = 'page.dat'
 
 __PAGE_SIZE__ += int(__PAGE_SIZE__/__MAX_SIZE_SEQ__)
 
+
+
 class general:
     def func(self):
         print ("here")
