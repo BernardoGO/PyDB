@@ -2,9 +2,13 @@ __author__ = 'Bernardo'
 
 import re
 
+from catalog.core import catalogCore
+
 
 class manager:
     def createTable(self, name, attrs):
-        select = r"select (.*?) from (.*?);"
-        groups =  re.findall(select, query)
-        print (groups)
+        ctlg = catalogCore()
+        ctlg.tableName = name
+        for x in attrs:
+            ctlg.insertAttr(x[0], x[1])
+        ctlg.commitCatalog()

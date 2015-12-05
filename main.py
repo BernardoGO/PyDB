@@ -3,6 +3,7 @@ __author__ = 'Bernardo Augusto Godinho de Oliveira - @bernardogo'
 from storage.io import general
 from query.evaluator import evaluator
 from catalog.core import catalogCore
+from storage.tablemgr import manager
 
 def main():
     print ("dsad")
@@ -12,16 +13,22 @@ io = general()
 io.write()
 
 eval = evaluator()
-eval.execute("select db_id from table; from tables2;")
+eval.execute(
+    """
+    create table table_name
+    (
+    column_name1 data_type(size),
+    column_name2 data_type(size),
+    column_name3 data_type(size),
+    );
+    """
 
+)
 
-ctlg = catalogCore()
-ctlg.newCatalog("students")
-ctlg.insertAttr("sid", "integer")
-ctlg.insertAttr("name", "string")
-ctlg.commitCatalog()
+tblm = manager()
+tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
+
 
 ctlg2 = catalogCore()
-ctlg2.loadCatalog("students")
-print(ctlg2.catalog)
+ctlg2.loadCatalog("students2")
 ctlg2.printCtlg()
