@@ -11,4 +11,4 @@ io = general()
 io.write()
 
 eval = evaluator()
-eval.execute("select db_id from table;")
+eval.execute("select db_id from table; from tables2;")
