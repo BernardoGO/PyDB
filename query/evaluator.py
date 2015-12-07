@@ -8,8 +8,9 @@ column_name2 data_type(size),
 column_name3 data_type(size),
 ....
 );
-
 """
+
+
 
 import re
 class evaluator:
