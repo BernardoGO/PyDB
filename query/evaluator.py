@@ -1,5 +1,7 @@
 __author__ = 'Bernardo'
 
+##### THIS IS A PLACEHOLDER EVALUATOR #####
+
 """
 CREATE TABLE table_name
 (
