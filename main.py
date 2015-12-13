@@ -30,5 +30,9 @@ tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
 
 
 ctlg2 = catalogCore()
-ctlg2.loadCatalog("table_name")
+ctlg2.loadCatalog("students2")
 ctlg2.printCtlg()
+
+from query.commands.insert import insert
+ins = insert()
+ins.insertRecord("students", ["22", "telefoneds2"])
