@@ -12,3 +12,4 @@ class manager:
         for x in attrs:
             ctlg.insertAttr(x[0], x[1])
         ctlg.commitCatalog()
+
