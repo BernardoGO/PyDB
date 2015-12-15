@@ -16,12 +16,6 @@ class select:
         io_s = general()
         print("Values not verified.")
 
-        #pgmg.catalog[table]
+        pgmg.readValues(table)
 
 
-
-        if len(ctlg.catalog) == len(values):
-
-            pgmg.writeValue(table, values)
-        else:
-            print("Number of values does not match table columns")

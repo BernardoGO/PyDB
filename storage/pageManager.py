@@ -35,9 +35,22 @@ class pageManager:
         strToSVX = ""
         for x in values:
             strToSVX += x + "$"
+        strToSVX = strToSVX[0:len(strToSVX)-1]
         io_s.writeValue(self.catalog[table][1], strToSVX, table + str(self.catalog[table][__numberOfPages_IDX__]))
 
 
+    def readValues(self, table):
+        print("match")
+        io_s = general()
+        if(table not in self.catalog):
+            print("Table does not exists -- attention")
+        print (self.catalog[table][__numberOfPages_IDX__])
+        values = []
+        for x in range(1, self.catalog[table][__numberOfPages_IDX__]+1):
+            readvals = io_s.readValues(table + str(x))
+            for y in readvals:
+                values.append(y.split(chr(0))[0].split("$"))
+        print (values)
 
 
     def commit(self):

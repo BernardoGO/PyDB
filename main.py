@@ -33,6 +33,11 @@ ctlg2 = catalogCore()
 ctlg2.loadCatalog("students2")
 ctlg2.printCtlg()
 
-from query.commands.insert import insert
+from query.commands.insert import *
+from query.commands.select import *
+
 ins = insert()
-ins.insertRecord("students", ["22", "telefoneds2"])
+#ins.insertRecord("students2", ["23", "segundo"])
+
+sel = select()
+sel.selection("students2", [])

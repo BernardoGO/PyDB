@@ -54,6 +54,8 @@ class general:
         print("all written")
         print(self.readPage(pageId))
 
+
+
     def readValue(self, rid, pageid):
         page = self.readPage(pageid)
         position = 255
@@ -67,6 +69,20 @@ class general:
             value.append(page[x+(position*__MAX_SIZE_SEQ__)])
         print(value.decode("utf-8") )
 
+    def readValues(self, pageid):
+        page = self.readPage(pageid)
+        values = []
+        positions = []
+        for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
+            positions.append(x)
+
+        for y in positions:
+
+            value = bytearray([])
+            for x in range(__MAX_SIZE_SEQ__):
+                value.append(page[x+(y*__MAX_SIZE_SEQ__)])
+            values.append(value.decode("utf-8"))
+        return values
 
 
 
