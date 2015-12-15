@@ -24,15 +24,18 @@ class pageManager:
         if(table not in self.catalog):
             print("not in")
             self.catalog[table] = [0,0]
+
+        self.catalog[table] = [self.catalog[table][0],self.catalog[table][1]+1]
+
         if(self.catalog[table][__numberOfPages_IDX__] == 0):
             self.catalog[table][__numberOfPages_IDX__] += 1
             io_s.initPage(table + str(self.catalog[table][__numberOfPages_IDX__]))
 
-            self.commit()
+        self.commit()
         strToSVX = ""
         for x in values:
             strToSVX += x + "$"
-        io_s.writeValue(0, strToSVX, table + str(self.catalog[table][__numberOfPages_IDX__]))
+        io_s.writeValue(self.catalog[table][1], strToSVX, table + str(self.catalog[table][__numberOfPages_IDX__]))
 
 
 
