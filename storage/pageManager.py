@@ -9,10 +9,11 @@ __numberOfPages_IDX__ = 0
 class pageManager:
     def __init__(self):
         self.catalog = {}
-
-    def updateInfo(self, table, value):
         if(len(self.catalog) == 0):
             self.load()
+
+    def updateInfo(self, table, value):
+
 
         #numberOfPages|AutoIncrNumber
         self.catalog[table] = value
@@ -40,4 +41,7 @@ class pageManager:
         pickle.dump(self.catalog,  open(__CATALOG_PREFIX__  + ".dat", 'wb'))
 
     def load(self):
-        self.catalog = pickle.load(open(__CATALOG_PREFIX__ + ".dat", 'rb'))
+        try:
+            self.catalog = pickle.load(open(__CATALOG_PREFIX__ + ".dat", 'rb'))
+        except:
+            pass
