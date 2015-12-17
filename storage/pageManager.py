@@ -49,7 +49,12 @@ class pageManager:
         for x in range(1, self.catalog[table][__numberOfPages_IDX__]+1):
             readvals = io_s.readValues(table + str(x))
             for y in readvals:
-                values.append(y.split(chr(0))[0].split("$"))
+                row = y.split(chr(0))[0].split("$")
+                if len(row) == 1:
+                    if len(row[0]) == 0:
+                        continue
+                if len(row) > 0:
+                    values.append(row)
         print (values)
 
 
