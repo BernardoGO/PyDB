@@ -21,15 +21,18 @@ class pageManager:
 
     def writeValue(self, table, values):
         io_s = general()
+
         if(table not in self.catalog):
             print("not in")
             self.catalog[table] = [0,0]
 
         self.catalog[table] = [self.catalog[table][0],self.catalog[table][1]+1]
+        pageid = table + str(self.catalog[table][__numberOfPages_IDX__])
 
         if(self.catalog[table][__numberOfPages_IDX__] == 0):
             self.catalog[table][__numberOfPages_IDX__] += 1
-            io_s.initPage(table + str(self.catalog[table][__numberOfPages_IDX__]))
+            pageid = table + str(self.catalog[table][__numberOfPages_IDX__])
+            io_s.initPage(pageid)
 
 
 
@@ -39,11 +42,17 @@ class pageManager:
             strToSVX += x + "$"
         strToSVX = strToSVX[0:len(strToSVX)-1]
 
-        pageid = table + str(self.catalog[table][__numberOfPages_IDX__])
-        if(io_s.hasEmptySpace(pageid)):
-            io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
-        else:
-            print("no empty slot")
+        while(True):
+            if(io_s.hasEmptySpace(pageid)):
+                io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+                break
+            else:
+                self.catalog[table][__numberOfPages_IDX__] += 1
+                self.commit()
+                pageid = table + str(self.catalog[table][__numberOfPages_IDX__])
+                io_s.initPage(pageid)
+                print("Another page created")
+
 
 
     def readValues(self, table):
