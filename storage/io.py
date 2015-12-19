@@ -7,6 +7,9 @@ __PAGE_SUFFIX__ = 'page.dat'
 __PAGE_SIZE__ += int(__PAGE_SIZE__/__MAX_SIZE_SEQ__)
 
 
+#### CONSTANTS
+__CONS_EMPTY_SLOT__ = 255
+
 class general:
     def func(self):
         print ("here")
@@ -25,7 +28,7 @@ class general:
             toBeWritten.append(0)
 
         for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
-            toBeWritten[x*-1 -1] = 255#ord('d')
+            toBeWritten[x*-1 -1] = __CONS_EMPTY_SLOT__
 
         file_.write(toBeWritten )
         file_.close()
@@ -41,7 +44,7 @@ class general:
         position = 255
         for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
 
-            if toBeWritten[x*-1 -1] == 255:
+            if toBeWritten[x*-1 -1] == __CONS_EMPTY_SLOT__:
                 toBeWritten[x*-1-1] = rid
                 position = x
                 break
@@ -68,6 +71,14 @@ class general:
         for x in range(__MAX_SIZE_SEQ__):
             value.append(page[x+(position*__MAX_SIZE_SEQ__)])
         print(value.decode("utf-8") )
+
+    def hasEmptySpace(self, pageid):
+        page = self.readPage(pageid)
+        position = 255
+        for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
+            if page[x*-1 -1] == __CONS_EMPTY_SLOT__:
+                return True
+        return False
 
     def readValues(self, pageid):
         page = self.readPage(pageid)

@@ -31,12 +31,19 @@ class pageManager:
             self.catalog[table][__numberOfPages_IDX__] += 1
             io_s.initPage(table + str(self.catalog[table][__numberOfPages_IDX__]))
 
+
+
         self.commit()
         strToSVX = ""
         for x in values:
             strToSVX += x + "$"
         strToSVX = strToSVX[0:len(strToSVX)-1]
-        io_s.writeValue(self.catalog[table][1], strToSVX, table + str(self.catalog[table][__numberOfPages_IDX__]))
+
+        pageid = table + str(self.catalog[table][__numberOfPages_IDX__])
+        if(io_s.hasEmptySpace(pageid)):
+            io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+        else:
+            print("no empty slot")
 
 
     def readValues(self, table):
