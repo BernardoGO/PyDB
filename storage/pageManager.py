@@ -55,7 +55,7 @@ class pageManager:
 
 
 
-    def readValues(self, table):
+    def readValues(self, table, cond = None):
         print("match")
         io_s = general()
         if(table not in self.catalog):
@@ -70,7 +70,24 @@ class pageManager:
                     if len(row[0]) == 0:
                         continue
                 if len(row) > 0:
-                    values.append(row)
+                    if cond is None:
+                        values.append(row)
+                    else:
+                        if len(cond) != len(row):
+                            print("Length of values does not match table")
+                        else:
+                            valid = True
+                            for x in range(len(cond)):
+                                if cond[x] is None:
+                                    continue
+                                else:
+                                    if cond[x] != row[x]:
+                                        valid = False
+                                        break
+
+                            if valid:
+                               values.append(row)
+
         print (values)
 
 
