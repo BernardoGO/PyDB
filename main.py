@@ -37,7 +37,7 @@ from query.commands.insert import *
 from query.commands.select import *
 
 ins = insert()
-#ins.insertRecord("students2", ["24", "terce321iro"])
+ins.insertRecord("students2", ["25", "terce32441iro"])
 
 sel = select()
 sel.selection("students2", [])

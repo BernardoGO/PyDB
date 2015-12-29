@@ -45,6 +45,7 @@ class pageManager:
         while(True):
             if(io_s.hasEmptySpace(pageid)):
                 io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+                print("Values written")
                 break
             else:
                 self.catalog[table][__numberOfPages_IDX__] += 1
@@ -72,6 +73,7 @@ class pageManager:
                 if len(row) > 0:
                     values.append(row)
         print (values)
+        return values
 
 
     def commit(self):

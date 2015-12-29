@@ -16,6 +16,6 @@ class select:
         io_s = general()
         print("Values not verified.")
 
-        pgmg.readValues(table)
+        print(len(pgmg.readValues(table)))
 
 
