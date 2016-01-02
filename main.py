@@ -4,6 +4,9 @@ from storage.io import general
 from query.evaluator import evaluator
 from catalog.core import catalogCore
 from storage.tablemgr import manager
+from buffer.bufmgr import buffer_pool
+
+main_pool = buffer_pool()
 
 def main():
     print ("dsad")
@@ -25,6 +28,8 @@ eval.execute(
 
 )
 
+
+
 tblm = manager()
 tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
 
@@ -37,7 +42,13 @@ from query.commands.insert import *
 from query.commands.select import *
 
 ins = insert()
-ins.insertRecord("students2", ["25", "terce32441iro"])
+
+#ins.insertRecord("students2", ["25", "terce32441iro"])
+
+#for x in range(25, 82):
+#    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
 
 sel = select()
 sel.selection("students2", [])
+
+print(main_pool.pool)

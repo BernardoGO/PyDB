@@ -6,7 +6,7 @@ from storage.tablemgr import manager
 import calendar
 import time
 
-__MAX_SIZE__ = 2
+__MAX_SIZE__ = 3
 
 class buffer:
     def __init__(self):
@@ -20,9 +20,10 @@ class buffer:
 class buffer_pool:
     pool = []
     def __init__(self):
+        if len(buffer_pool.pool) == 0:
+            for x in range(0, __MAX_SIZE__):
+                self.addToPool(None)
 
-        for x in range(0, __MAX_SIZE__):
-            self.addToPool(None)
 
     def findPage(self, pid):
         pos = -1
@@ -44,7 +45,7 @@ class buffer_pool:
     def findVictimPage(self):
         victim = 0
         for x in range(len(buffer_pool.pool)):
-            if buffer_pool.pool[x].timestamp < victim.timestamp and buffer_pool.pool[x].pincount == 0:
+            if buffer_pool.pool[x].timestamp < buffer_pool.pool[victim].timestamp:
                 victim = x
         return victim
 
@@ -52,9 +53,13 @@ class buffer_pool:
         ios = general()
         newb = buffer()
         newb.pid = pid
-        newb.timestamp = calendar.timegm(time.gmtime())
-        newb.page = ios.readPage(pid)
+
+        newb.page = ios.readValues(pid)
         victim = self.findVictimPage()
+        #time.sleep(1)
+        newb.timestamp = time.time()
+
+        print("Replacing Page: " + str(buffer_pool.pool[victim].pid) + " -> " + str(newb.pid) + " on slot " + str(victim))
         buffer_pool.pool[victim] = newb
 
 

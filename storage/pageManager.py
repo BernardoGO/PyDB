@@ -2,6 +2,8 @@ __author__ = 'Bernardo'
 
 import pickle
 from storage.io import general
+from buffer.bufmgr import buffer_pool
+
 __CATALOG_PREFIX__ = "pagemgr"
 
 __numberOfPages_IDX__ = 0
@@ -13,8 +15,6 @@ class pageManager:
             self.load()
 
     def updateInfo(self, table, value):
-
-
         #numberOfPages|AutoIncrNumber
         self.catalog[table] = value
         self.commit()
@@ -57,6 +57,7 @@ class pageManager:
 
 
     def readValues(self, table):
+        bfm = buffer_pool()
         print("match")
         io_s = general()
         if(table not in self.catalog):
@@ -64,8 +65,13 @@ class pageManager:
         print (self.catalog[table][__numberOfPages_IDX__])
         values = []
         for x in range(1, self.catalog[table][__numberOfPages_IDX__]+1):
-            readvals = io_s.readValues(table + str(x))
-            for y in readvals:
+            #readvals = io_s.readValues(table + str(x))
+            page = table + str(x)
+            readvals = bfm.findPage(page)
+            if readvals == -1:
+                bfm.replacePage(page)
+            xx = bfm.findPage(page)
+            for y in bfm.pool[xx].page:
                 row = y.split(chr(0))[0].split("$")
                 if len(row) == 1:
                     if len(row[0]) == 0:
