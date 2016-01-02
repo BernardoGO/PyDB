@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b802bdc-c9ea-487f-9c71-b73fefe915ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/buffer/bufmgr.py" afterPath="$PROJECT_DIR$/buffer/bufmgr.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/pageManager.py" afterPath="$PROJECT_DIR$/storage/pageManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pagemgr.dat" afterPath="$PROJECT_DIR$/pagemgr.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pybase.iws" />
@@ -633,7 +629,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451732449489</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Replacing pages from buffer during scan">
+      <created>1451734254591</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1451734254591</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -656,7 +658,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28944618" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28944618" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -701,7 +703,8 @@
     <MESSAGE value="counting" />
     <MESSAGE value="Buffer manager initial commit" />
     <MESSAGE value="Removing circular dependency" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing circular dependency" />
+    <MESSAGE value="Replacing pages from buffer during scan" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replacing pages from buffer during scan" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
