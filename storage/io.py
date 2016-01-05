@@ -83,6 +83,7 @@ class general:
     def readValues(self, pageid):
         page = self.readPage(pageid)
         values = []
+        rids = []
         positions = []
         for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
             positions.append(x)
@@ -93,7 +94,8 @@ class general:
             for x in range(__MAX_SIZE_SEQ__):
                 value.append(page[x+(y*__MAX_SIZE_SEQ__)])
             values.append(value.decode("utf-8"))
-        return values
+            rids.append(page[x*-1 -1])
+        return [values, rids]
 
 
 

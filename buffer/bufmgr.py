@@ -12,9 +12,12 @@ class buffer:
     def __init__(self):
         self.pid = None
         self.page = None
+        self.rids = None
         self.timestamp = None
         self.pinCount = 0
         self.dirty = False
+
+
 
 
 class buffer_pool:
@@ -54,7 +57,9 @@ class buffer_pool:
         newb = buffer()
         newb.pid = pid
 
-        newb.page = ios.readValues(pid)
+        page = ios.readValues(pid)
+        newb.page = page[0]
+        newb.rids = page[1]
         victim = self.findVictimPage()
         #time.sleep(1)
         newb.timestamp = time.time()

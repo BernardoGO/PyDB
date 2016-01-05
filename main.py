@@ -49,6 +49,6 @@ ins = insert()
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
 
 sel = select()
-sel.selection("students2", [])
-
+#sel.selection("students2", [])
+sel.selection("students2", [['phone', 'terce32441iro']])
 print(main_pool.pool)
