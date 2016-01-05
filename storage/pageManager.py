@@ -71,14 +71,18 @@ class pageManager:
             if readvals == -1:
                 bfm.replacePage(page)
             xx = bfm.findPage(page)
-            for y in bfm.pool[xx].page:
+            for yy in range(len(bfm.pool[xx].page)):
+                y = bfm.pool[xx].page[yy]
+
                 row = y.split(chr(0))[0].split("$")
+
                 if len(row) == 1:
                     if len(row[0]) == 0:
                         continue
                 if len(row) > 0:
+
                     if cond is None:
-                        values.append(row)
+                        values.append([bfm.pool[xx].rids[yy], row])
                     else:
                         if len(cond) != len(row):
                             print("Length of values does not match table")
@@ -93,7 +97,7 @@ class pageManager:
                                         break
 
                             if valid:
-                               values.append(row)
+                               values.append([bfm.pool[xx].rids[yy], row])
         print (values)
         return values
 
