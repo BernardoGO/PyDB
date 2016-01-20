@@ -19,6 +19,9 @@ class pageManager:
         self.catalog[table] = value
         self.commit()
 
+
+
+
     def writeValue(self, table, values):
         io_s = general()
 
@@ -56,7 +59,7 @@ class pageManager:
 
 
 
-    def readValues(self, table, cond = None):
+    def readValues(self, table, cond = None, newValues = None):
         bfm = buffer_pool()
         print("match")
         io_s = general()
@@ -95,6 +98,19 @@ class pageManager:
                                     if cond[x] != row[x]:
                                         valid = False
                                         break
+                            if newValues is not None:
+                                for xxs in range(len(newValues)):
+                                    if newValues[xxs] is None:
+                                        continue
+                                    else:
+                                        row[xxs] = newValues[xxs] #expect this to update the page
+                                        newPg = ""
+                                        for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
+                                            newPg += row[iis] + "$"
+                                        print(row)
+                                        print(bfm.pool[xx].page[yy])
+                                        print(newPg)
+                                        bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
 
                             if valid:
                                values.append([bfm.pool[xx].rids[yy], row])

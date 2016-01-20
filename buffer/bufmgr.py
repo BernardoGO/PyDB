@@ -17,6 +17,9 @@ class buffer:
         self.pinCount = 0
         self.dirty = False
 
+    def forcePage(self):
+        pass
+
 
 
 
@@ -58,7 +61,8 @@ class buffer_pool:
         newb.pid = pid
 
         page = ios.readValues(pid)
-        newb.page = page[0]
+        print(page[0])
+        newb.page = page[0]#.split(chr(0))[0].split("$")
         newb.rids = page[1]
         victim = self.findVictimPage()
         #time.sleep(1)

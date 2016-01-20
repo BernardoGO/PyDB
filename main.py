@@ -50,5 +50,6 @@ ins = insert()
 
 sel = select()
 #sel.selection("students2", [])
-sel.selection("students2", [['phone', 'terce32441iro']])
+#sel.selection("students2", [['phone', 'terce32441iro']], [['phone', 'terce32441irosss']])
+sel.selection("students2", [])
 print(main_pool.pool)

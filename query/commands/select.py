@@ -15,7 +15,7 @@ class select:
             builtVal.append(None)
         return builtVal
 
-    def selection(self, table, values):
+    def selection(self, table, values, newValues = None):
         ctlg = catalogCore()
         ctlg.loadCatalog(table)
 
@@ -24,6 +24,15 @@ class select:
         print("Values not verified.")
 
         vals = self.buildValues(ctlg)
+        newVals = None
+        if newValues is not None:
+            newVals = self.buildValues(ctlg)
+            for x in range(len(newValues)):
+                for y in range(len(ctlg.catalog)):
+                    val1 = newValues[x][0]
+                    val2 = ctlg.catalog[y][0]
+                    if val1 == val2:
+                        newVals[y] = newValues[x][1]
 
         for x in range(len(values)):
             for y in range(len(ctlg.catalog)):
@@ -33,7 +42,7 @@ class select:
                     vals[y] = values[x][1]
 
 
-        x = pgmg.readValues(table, vals)
+        x = pgmg.readValues(table, vals, newVals)
         print(len(x))
         #print(len(pgmg.readValues(table, vals)))
 
