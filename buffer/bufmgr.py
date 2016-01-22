@@ -18,7 +18,11 @@ class buffer:
         self.dirty = False
 
     def forcePage(self):
-        pass
+        if self.pid is None:
+            return
+        ios = general()
+
+        ios.writePage(self.rids, self.page, self.pid)
 
 
 
@@ -65,10 +69,14 @@ class buffer_pool:
         newb.page = page[0]#.split(chr(0))[0].split("$")
         newb.rids = page[1]
         victim = self.findVictimPage()
+        buffer_pool.pool[victim].forcePage()   #Forces all data to disk before replacing
         #time.sleep(1)
         newb.timestamp = time.time()
 
         print("Replacing Page: " + str(buffer_pool.pool[victim].pid) + " -> " + str(newb.pid) + " on slot " + str(victim))
         buffer_pool.pool[victim] = newb
 
+    def forceBuffer(self):
+        for x in range(len(buffer_pool.pool)):
+            buffer_pool.pool[x].forcePage()
 

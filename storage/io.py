@@ -35,6 +35,37 @@ class general:
         print("all written")
         print(self.readPage(pageId))
 
+    def writePage(self, rids, records, pageId):
+        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+
+        toBeWritten = bytearray([])  #'\0' *__PAGE_SIZE__
+        for i in range(__PAGE_SIZE__):
+            toBeWritten.append(0)
+
+        for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
+            toBeWritten[x*-1 -1] = __CONS_EMPTY_SLOT__
+
+        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+        print(self.readPage(pageId))
+
+        print(toBeWritten)
+        for ridN in range(len(rids)):
+            position = 255
+            for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
+
+                if toBeWritten[x*-1 -1] == __CONS_EMPTY_SLOT__:
+                    toBeWritten[x*-1-1] = rids[ridN]
+                    position = x
+                    break
+
+            for x in range(len(records[ridN])):
+                toBeWritten[x+(position*__MAX_SIZE_SEQ__)] = ord(records[ridN][x])
+
+        file_.write(toBeWritten )
+        file_.close()
+        print("all written")
+        print(self.readPage(pageId))
+
     def writeValue(self, rid, bytes, pageId):
         toBeWritten = self.readPage(pageId)  #'\0' *__PAGE_SIZE__
         file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
