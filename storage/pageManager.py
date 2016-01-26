@@ -48,8 +48,14 @@ class pageManager:
         while(True):
             if(io_s.hasEmptySpace(pageid)):
 
-                #io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
-                ssa
+                io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+                #victim = bfm.replacePage(pageid)
+
+                readvals = bfm.findPage(pageid)
+                if readvals == -1:
+                    readvals = bfm.replacePage(pageid)
+
+
                 print("Values written")
                 break
             else:

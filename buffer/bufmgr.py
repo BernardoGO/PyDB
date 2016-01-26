@@ -66,6 +66,7 @@ class buffer_pool:
 
         page = ios.readValues(pid)
         print(page[0])
+
         newb.page = page[0]#.split(chr(0))[0].split("$")
         newb.rids = page[1]
         victim = self.findVictimPage()
@@ -75,6 +76,8 @@ class buffer_pool:
 
         print("Replacing Page: " + str(buffer_pool.pool[victim].pid) + " -> " + str(newb.pid) + " on slot " + str(victim))
         buffer_pool.pool[victim] = newb
+        print(buffer_pool.pool[victim].rids)
+        print(buffer_pool.pool[victim].page)
         return victim
 
     def forceBuffer(self):

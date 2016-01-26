@@ -125,7 +125,11 @@ class general:
             for x in range(__MAX_SIZE_SEQ__):
                 value.append(page[x+(y*__MAX_SIZE_SEQ__)])
             values.append(value.decode("utf-8"))
+
+        for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
             rids.append(page[x*-1 -1])
+        print(page)
+        print(rids)
         return [values, rids]
 
 
