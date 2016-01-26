@@ -75,6 +75,7 @@ class buffer_pool:
 
         print("Replacing Page: " + str(buffer_pool.pool[victim].pid) + " -> " + str(newb.pid) + " on slot " + str(victim))
         buffer_pool.pool[victim] = newb
+        return victim
 
     def forceBuffer(self):
         for x in range(len(buffer_pool.pool)):

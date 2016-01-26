@@ -24,7 +24,7 @@ class pageManager:
 
     def writeValue(self, table, values):
         io_s = general()
-
+        bfm = buffer_pool()
         if(table not in self.catalog):
             print("not in")
             self.catalog[table] = [0,0]
@@ -47,7 +47,9 @@ class pageManager:
 
         while(True):
             if(io_s.hasEmptySpace(pageid)):
-                io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+
+                #io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+                ssa
                 print("Values written")
                 break
             else:
