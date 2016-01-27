@@ -43,7 +43,7 @@ from query.commands.select import *
 
 ins = insert()
 
-#ins.insertRecord("students2", ["25", "terce32441iro"])
+#ins.insertRecord("students2", ["26", "terce32441iro"])
 
 #for x in range(25, 82):
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])

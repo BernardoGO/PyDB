@@ -48,13 +48,18 @@ class pageManager:
         while(True):
             if(io_s.hasEmptySpace(pageid)):
 
-                io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
+                #io_s.writeValue(self.catalog[table][1], strToSVX, pageid)
                 #victim = bfm.replacePage(pageid)
 
                 readvals = bfm.findPage(pageid)
                 if readvals == -1:
                     readvals = bfm.replacePage(pageid)
 
+                for rec in range(len(bfm.pool[readvals].rids)):
+                    if bfm.pool[readvals].rids[rec] == 255:
+                        bfm.pool[readvals].rids[rec] = self.catalog[table][1]
+                        bfm.pool[readvals].page[rec] =strToSVX
+                        break
 
                 print("Values written")
                 break
