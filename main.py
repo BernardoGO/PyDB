@@ -43,7 +43,7 @@ from query.commands.select import *
 
 ins = insert()
 
-#ins.insertRecord("students2", ["26", "terce32441iro"])
+ins.insertRecord("students2", ["26", "terce32441iro"])
 
 #for x in range(25, 82):
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
@@ -52,5 +52,5 @@ sel = select()
 #sel.selection("students2", [])
 #sel.selection("students2", [['phone', 'terce32441iro']], [['phone', 'terce32441irosss']])
 sel.selection("students2", [])
-#main_pool.forceBuffer()
+main_pool.forceBuffer()
 print(main_pool.pool)
