@@ -112,22 +112,23 @@ class pageManager:
                                     if cond[x] != row[x]:
                                         valid = False
                                         break
-                            if newValues is not None:
-                                for xxs in range(len(newValues)):
-                                    if newValues[xxs] is None:
-                                        continue
-                                    else:
-                                        row[xxs] = newValues[xxs] #expect this to update the page
-                                        newPg = ""
-                                        for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
-                                            newPg += row[iis] + "$"
-                                        print(row)
-                                        print(bfm.pool[xx].page[yy])
-                                        print(newPg)
-                                        bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
+
 
                             if valid:
-                               values.append([bfm.pool[xx].rids[yy], row])
+                                if newValues is not None:
+                                    for xxs in range(len(newValues)):
+                                        if newValues[xxs] is None:
+                                            continue
+                                        else:
+                                            row[xxs] = newValues[xxs] #expect this to update the page
+                                            newPg = ""
+                                            for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
+                                                newPg += row[iis] + "$"
+                                            print(row)
+                                            print(bfm.pool[xx].page[yy])
+                                            print(newPg)
+                                            bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
+                                values.append([bfm.pool[xx].rids[yy], row])
         print (values)
         return values
 

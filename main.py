@@ -50,7 +50,7 @@ ins = insert()
 
 sel = select()
 #sel.selection("students2", [])
-sel.selection("students2", [['phone', 'terce32441iro']], [['phone', 'modificatodos']])
+sel.selection("students2", [['phone', 'modificatodos']], [['phone', 'terceiro22']])
 #sel.selection("students2", [['phone', 'terce32441iro']])
 sel.selection("students2", [])
 main_pool.forceBuffer()
