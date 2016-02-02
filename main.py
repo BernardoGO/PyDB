@@ -40,7 +40,7 @@ ctlg2.printCtlg()
 
 from query.commands.insert import *
 from query.commands.select import *
-
+from query.commands.update import *
 ins = insert()
 
 #ins.insertRecord("students2", ["26", "terce32441iro"])
@@ -49,8 +49,9 @@ ins = insert()
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
 
 sel = select()
+upd = update()
 #sel.selection("students2", [])
-sel.selection("students2", [['phone', 'modificatodos']], [['phone', 'terceiro22']])
+upd.update("students2", [['phone', 'terceiro223']], [['phone', 'terceiro224']])
 #sel.selection("students2", [['phone', 'terce32441iro']])
 sel.selection("students2", [])
 main_pool.forceBuffer()

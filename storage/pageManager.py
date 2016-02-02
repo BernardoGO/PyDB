@@ -128,6 +128,7 @@ class pageManager:
                                             print(bfm.pool[xx].page[yy])
                                             print(newPg)
                                             bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
+                                            bfm.pool[xx].dirty = True
                                 values.append([bfm.pool[xx].rids[yy], row])
         print (values)
         return values
