@@ -42,7 +42,7 @@ class select:
                     vals[y] = values[x][1]
 
 
-        x = pgmg.readValues(table, vals, newVals)
+        x = pgmg.readValues(table, vals, pgmg.updateValues, newVals)
         print(len(x))
         #print(len(pgmg.readValues(table, vals)))
 

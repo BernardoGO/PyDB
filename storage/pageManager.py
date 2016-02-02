@@ -71,9 +71,23 @@ class pageManager:
                 io_s.initPage(pageid)
                 print("Another page created")
 
+    def updateValues(self, row, xx, yy, newValues):
+        bfm = buffer_pool()
+        for xxs in range(len(newValues)):
+            if newValues[xxs] is None:
+                continue
+            else:
+                row[xxs] = newValues[xxs] #expect this to update the page
+                newPg = ""
+                for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
+                    newPg += row[iis] + "$"
+                print(row)
+                print(bfm.pool[xx].page[yy])
+                print(newPg)
+                bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
+                bfm.pool[xx].dirty = True
 
-
-    def readValues(self, table, cond = None, newValues = None):
+    def readValues(self, table, cond = None, function = None, newValues = None):
         bfm = buffer_pool()
         print("match")
         io_s = general()
@@ -116,19 +130,7 @@ class pageManager:
 
                             if valid:
                                 if newValues is not None:
-                                    for xxs in range(len(newValues)):
-                                        if newValues[xxs] is None:
-                                            continue
-                                        else:
-                                            row[xxs] = newValues[xxs] #expect this to update the page
-                                            newPg = ""
-                                            for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
-                                                newPg += row[iis] + "$"
-                                            print(row)
-                                            print(bfm.pool[xx].page[yy])
-                                            print(newPg)
-                                            bfm.pool[xx].page[yy] = newPg[0:len(newPg)-1]
-                                            bfm.pool[xx].dirty = True
+                                    function(row, xx, yy, newValues)
                                 values.append([bfm.pool[xx].rids[yy], row])
         print (values)
         return values
