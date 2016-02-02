@@ -59,6 +59,7 @@ class pageManager:
                     if bfm.pool[readvals].rids[rec] == 255:
                         bfm.pool[readvals].rids[rec] = self.catalog[table][1]
                         bfm.pool[readvals].page[rec] =strToSVX
+                        bfm.pool[readvals].dirty = True
                         break
 
                 print("Values written")
@@ -93,7 +94,7 @@ class pageManager:
                 row = y.split(chr(0))[0].split("$")
 
                 if len(row) == 1:
-                    if len(row[0]) == 0:
+                    if len(row[0]) == 0: #empty row
                         continue
                 if len(row) > 0:
 
