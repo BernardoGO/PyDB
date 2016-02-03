@@ -15,7 +15,7 @@ class select:
             builtVal.append(None)
         return builtVal
 
-    def selection(self, table, values, newValues = None):
+    def selection(self, table, values, function = None, newValues = None):
         ctlg = catalogCore()
         ctlg.loadCatalog(table)
 
@@ -42,7 +42,7 @@ class select:
                     vals[y] = values[x][1]
 
 
-        x = pgmg.readValues(table, vals, pgmg.updateValues, newVals)
+        x = pgmg.readValues(table, vals, function, newVals)
         print(len(x))
         #print(len(pgmg.readValues(table, vals)))
 

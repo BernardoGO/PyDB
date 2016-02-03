@@ -13,7 +13,8 @@ class update:
 
     def update(self, table, values, newvalues):
         sel = select()
-        sel.selection(table, values, newvalues)
+        pgmg = pageManager()
+        sel.selection(table, values, pgmg.deleteValues, newvalues)
 
 
 
