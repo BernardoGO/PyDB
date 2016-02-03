@@ -1,4 +1,4 @@
-__author__ = 'Bernardo'
+__author__ = 'BernardoGO'
 
 from catalog.core import catalogCore
 from storage.io import general
