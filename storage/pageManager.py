@@ -3,6 +3,8 @@ __author__ = 'Bernardo'
 import pickle
 from storage.io import general
 from buffer.bufmgr import buffer_pool
+import storage.io
+
 
 __CATALOG_PREFIX__ = "pagemgr"
 
@@ -56,7 +58,7 @@ class pageManager:
                     readvals = bfm.replacePage(pageid)
 
                 for rec in range(len(bfm.pool[readvals].rids)):
-                    if bfm.pool[readvals].rids[rec] == 255:
+                    if bfm.pool[readvals].rids[rec] == storage.io.__CONS_EMPTY_SLOT__:
                         bfm.pool[readvals].rids[rec] = self.catalog[table][1]
                         bfm.pool[readvals].page[rec] =strToSVX
                         bfm.pool[readvals].dirty = True
@@ -144,8 +146,7 @@ class pageManager:
                                         valid = False
                                         break
 
-
-                            if valid:
+                            if valid and bfm.pool[xx].rids[yy] != storage.io.__CONS_EMPTY_SLOT__:
                                 if newValues is not None:
                                     function(row, xx, yy, newValues)
                                 values.append([bfm.pool[xx].rids[yy], row])
