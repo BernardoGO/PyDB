@@ -18,7 +18,7 @@ class buffer:
         self.dirty = False
 
     def forcePage(self):
-        if self.pid is None:
+        if self.pid is None or self.dirty is False:
             return
         ios = general()
 

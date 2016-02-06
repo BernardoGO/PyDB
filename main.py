@@ -43,7 +43,7 @@ from query.commands.select import *
 from query.commands.update import *
 ins = insert()
 
-ins.insertRecord("students2", ["26", "terce32441iro"])
+#ins.insertRecord("students2", ["26", "terce32441iro"])
 
 #for x in range(25, 82):
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
@@ -51,7 +51,7 @@ ins.insertRecord("students2", ["26", "terce32441iro"])
 sel = select()
 upd = update()
 #sel.selection("students2", [])
-upd.update("students2", [['phone', 'terce32441iro']], [['phone', 'terceiro2221']])
+upd.update("students2", [['phone', 'terce32441iro']], [['phone', 'terceiro2221see']])
 #sel.selection("students2", [['phone', 'terce32441iro']])
 print("321-----")
 sel.selection("students2", [])
