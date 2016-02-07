@@ -21,7 +21,11 @@ class pageManager:
         self.catalog[table] = value
         self.commit()
 
-
+    def buildRow(self, row):
+        newPg = ""
+        for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
+            newPg += row[iis] + "$"
+        return newPg[0:len(newPg)-1]
 
 
     def writeValue(self, table, values):
@@ -73,11 +77,6 @@ class pageManager:
                 io_s.initPage(pageid)
                 print("Another page created")
 
-    def buildRow(self, row):
-        newPg = ""
-        for iis in range(len(row)):   ########################### THIS IS NOT THE BEST WAY TO DO THIS, CHANGE THE BUFFER FILE
-            newPg += row[iis] + "$"
-        return newPg[0:len(newPg)-1]
 
     def updateValues(self, row, xx, yy, newValues):
         bfm = buffer_pool()
@@ -97,7 +96,7 @@ class pageManager:
             else:
                 bfm.pool[xx].page[yy] = self.buildRow(row)
                 bfm.pool[xx].dirty = True
-                bfm.pool[xx].rids[yy] = 255
+                bfm.pool[xx].rids[yy] = storage.io.__CONS_EMPTY_SLOT__
 
     def readValues(self, table, cond = None, function = None, newValues = None):
         bfm = buffer_pool()
