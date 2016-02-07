@@ -75,7 +75,7 @@ class general:
         position = 255
         for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
 
-            if toBeWritten[x*-1 -1] == __CONS_EMPTY_SLOT__:
+            if toBeWritten[x*-1-1] == __CONS_EMPTY_SLOT__:
                 toBeWritten[x*-1-1] = rid
                 position = x
                 break

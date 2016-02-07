@@ -6,7 +6,7 @@ from catalog.core import catalogCore
 from storage.tablemgr import manager
 from buffer.bufmgr import buffer_pool
 
-main_pool = buffer_pool.pool
+main_pool = buffer_pool()
 
 def main():
     print ("dsad")
@@ -31,7 +31,7 @@ eval.execute(
 
 
 tblm = manager()
-tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
+tblm.createTable("students3", [["id", "integer"], ["phone", "string"]])
 
 
 ctlg2 = catalogCore()
@@ -45,7 +45,7 @@ ins = insert()
 
 #ins.insertRecord("students2", ["26", "terce32441iro"])
 #for x in range(25, 82):
-#    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
+#    ins.insertRecord("students3", [str(x), "terce3PG32323o" + str(x)])
 
 sel = select()
 upd = update()
@@ -54,5 +54,7 @@ upd.update("students2", [['phone', 'terceiro2221see']], [['phone', 'terceiro2221
 #sel.selection("students2", [['phone', 'terce32441iro']])
 print("321-----")
 sel.selection("students2", [])
+sel.selection("students3", [])
+sel.join("students2", "students3", sel.selection("students2", []), sel.selection("students3", []), "id")
 main_pool.forceBuffer()
 print(main_pool.pool)
