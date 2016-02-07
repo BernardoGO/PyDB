@@ -6,7 +6,7 @@ from catalog.core import catalogCore
 from storage.tablemgr import manager
 from buffer.bufmgr import buffer_pool
 
-main_pool = buffer_pool()
+main_pool = buffer_pool.pool
 
 def main():
     print ("dsad")
@@ -44,7 +44,6 @@ from query.commands.update import *
 ins = insert()
 
 #ins.insertRecord("students2", ["26", "terce32441iro"])
-
 #for x in range(25, 82):
 #    ins.insertRecord("students2", [str(x), "terce32441iro" + str(x)])
 
