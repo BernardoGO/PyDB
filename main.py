@@ -62,6 +62,8 @@ def main():
     main_pool.forceBuffer()
     print(main_pool.pool)
 
-    import query.parser.sqlparse
+    from query.parser.sqlparse import parser
+    pt = parser()
+    pt.test("select * from x")
 
 main()
