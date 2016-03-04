@@ -4,6 +4,7 @@ from pyparsing import Literal, CaselessLiteral, Upcase, Word, delimitedList, Opt
 
 
 # define SQL tokens
+command = Forward()
 selectStmt = Forward()
 selectToken = Keyword("select", caseless=True)
 fromToken   = Keyword("from", caseless=True)

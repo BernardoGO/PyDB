@@ -29,7 +29,7 @@ class parser:
         tokens.joinExpression << (self.joinCondition  )
 
         # define the grammar
-        tokens.selectStmt      << ( tokens.selectToken +
+        tokens.selectStmt      << ( tokens.selectToken.setResultsName("command") +
                            ( '*' | tokens.columnNameList ).setResultsName( "columns" ) +
 
                            tokens.fromToken +
@@ -48,6 +48,7 @@ class parser:
         try:
             gentokens = self.simpleSQL.parseString( str )
             print("tokens = ",        gentokens)
+            print("tokens.command =", gentokens.command)
             print("tokens.columns =", gentokens.columns)
             print("tokens.tables =",  gentokens.tables)
             print("tokens.join =",  gentokens.join)
@@ -62,6 +63,7 @@ class parser:
         try:
             gentokens = self.simpleSQL.parseString( str )
             print("tokens = ",        gentokens)
+            print("tokens.command =", gentokens.command)
             print("tokens.columns =", gentokens.columns)
             print("tokens.tables =",  gentokens.tables)
             print("tokens.join =",  gentokens.join)

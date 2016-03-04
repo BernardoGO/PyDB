@@ -64,6 +64,6 @@ def main():
 
     from query.parser.sqlparse import parser
     pt = parser()
-    pt.test("select * from x")
+    pt.parse("select * from x")
 
 main()
