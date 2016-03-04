@@ -21,3 +21,5 @@ on_ = Keyword("on", caseless=True)
 E = CaselessLiteral("E")
 binop = oneOf("= != < > >= <= eq ne lt le gt ge", caseless=True)
 arithSign = Word("+-",exact=1)
+LPAREN = "("
+RPAREN = ")"

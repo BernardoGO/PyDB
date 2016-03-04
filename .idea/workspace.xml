@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1b802bdc-c9ea-487f-9c71-b73fefe915ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/query/parser/sqlparse.py" afterPath="$PROJECT_DIR$/query/parser/sqlparse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/query/parser/tokens.py" afterPath="$PROJECT_DIR$/query/parser/tokens.py" />
     </list>
     <ignored path="Pybase.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78187406">
+            <state vertical-scroll-proportion="0.0">
               <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
               <folding>
                 <element signature="e#67#97#0" expanded="true" />
@@ -65,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sqlparse.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sqlparse.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/query/parser/sqlparse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.571428">
-              <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.45104334">
+              <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
               <folding>
                 <element signature="e#0#217#0" expanded="true" />
               </folding>
@@ -123,7 +125,7 @@
         <entry file="file://$PROJECT_DIR$/query/parser/tokens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="22" selection-end-column="30" />
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -166,9 +168,9 @@
         <option value="$PROJECT_DIR$/storage/pageManager.py" />
         <option value="$PROJECT_DIR$/storage/io.py" />
         <option value="$PROJECT_DIR$/query/commands/select.py" />
+        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/query/parser/tokens.py" />
         <option value="$PROJECT_DIR$/query/parser/sqlparse.py" />
-        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -509,12 +511,6 @@
       <option name="number" value="Default" />
       <updated>1448341095179</updated>
     </task>
-    <task id="LOCAL-00003" summary="WriteValue working">
-      <created>1448536068138</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1448536068138</updated>
-    </task>
     <task id="LOCAL-00004" summary="read working">
       <created>1448536458685</created>
       <option name="number" value="00004" />
@@ -803,7 +799,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456544163040</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="working parser&#10;">
+      <created>1457753778346</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1457753778346</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1275,30 +1277,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
+          <folding>
+            <element signature="e#67#97#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/query/parser/tokens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="22" selection-end-column="30" />
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/query/parser/sqlparse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.571428">
-          <caret line="45" column="18" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.45104334">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
           <folding>
             <element signature="e#0#217#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78187406">
-          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-          <folding>
-            <element signature="e#67#97#0" expanded="true" />
           </folding>
         </state>
       </provider>
