@@ -36,7 +36,7 @@ def main():
 
 
     tblm = manager()
-    tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
+    #tblm.createTable("students3", [["id", "integer"], ["phone", "string"]])
 
 
     ctlg2 = catalogCore()
@@ -46,7 +46,7 @@ def main():
 
     ins = insert()
 
-    #ins.insertRecord("students3", ["26", "terce32441iro"])
+    ins.insertRecord("students2", ["26", "terce32441iro"])
     #for x in range(25, 82):
     #    ins.insertRecord("students3", [str(x), "terce3PG32323o" + str(x)])
 
@@ -54,11 +54,11 @@ def main():
     upd = update()
     #sel.selection("students2", [])
     upd.update("students2", [['phone', 'terceiro2221see']], [['phone', 'terceiro2221seesss']])
-    #sel.selection("students2", [['phone', 'terce32441iro']])
+    sel.selection("students2", [['phone', 'terce32441iro']])
     print("321-----")
-    sel.selection("students2", [])
-    sel.selection("students3", [])
-    sel.join("students2", "students3", sel.selection("students2", []), sel.selection("students3", []), "id")
+    #sel.selection("students2", [])
+    #sel.selection("students3", [])
+    #sel.join("students2", "students3", sel.selection("students2", []), sel.selection("students3", []), "id")
     main_pool.forceBuffer()
     print(main_pool.pool)
 

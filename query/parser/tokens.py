@@ -1,4 +1,4 @@
-from pyparsing import Literal, CaselessLiteral, Upcase, Word, delimitedList, Optional, \
+from pyparsing import Literal, CaselessLiteral, Word, delimitedList, Optional, \
     Combine, Group, alphas, nums, alphanums, ParseException, Forward, oneOf, quotedString, \
     ZeroOrMore, restOfLine, Keyword
 
