@@ -1,9 +1,10 @@
 __author__ = 'Bernardo Augusto Godinho de Oliveira - @bernardogo'
 
-from query.evaluator import evaluator
 from storage.io import general
+from query.evaluator import evaluator
 from catalog.core import catalogCore
-from storage.tablemgr import manager
+from storage.tab
+lemgr import manager
 from buffer.bufmgr import buffer_pool
 from query.commands.insert import *
 from query.commands.select import *
