@@ -64,6 +64,6 @@ def main():
 
     from query.parser.sqlparse import parser
     pt = parser()
-    pt.parse("select * from x")
+    pt.parse("select * from x where x = 3 and y < 2")
 
 main()

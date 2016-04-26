@@ -57,6 +57,7 @@ class parser:
             print(" "*err.loc + "^\n" + err.msg)
             print(err)
         print()
+        return gentokens
 
     def test(self, str ):
         print(str,"->")
