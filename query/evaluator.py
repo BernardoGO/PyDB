@@ -2,6 +2,10 @@ __author__ = 'Bernardo'
 
 ##### THIS IS A PLACEHOLDER EVALUATOR #####
 
+from query.commands.insert import *
+from query.commands.select import *
+from query.commands.update import *
+
 """
 CREATE TABLE table_name
 (
@@ -12,10 +16,32 @@ column_name3 data_type(size),
 );
 """
 
-
+"""
+sel.selection("students2", [['phone', 'terce32441iro']])
+"""
 from catalog.core import catalogCore
 import re
 class evaluator:
+    def exec(self, query):
+        from query.parser.sqlparse import parser
+        pt = parser()
+        gentokens = pt.parse(query)
+        print("tokens = ",        gentokens)
+        print("tokens.command =", gentokens.command)
+        print("tokens.columns =", gentokens.columns)
+        print("tokens.tables =",  gentokens.tables)
+        print("tokens.join =",  gentokens.join)
+        print("tokens.where =", gentokens.where)
+
+        if gentokens.command == "select":
+
+            sel = select()
+
+            print ( "select detected")
+            sel.selection(gentokens.tables[0], [['phone', 'terce32441iro']])
+            #sel.selection("students2", [['phone', 'terce32441iro']])
+
+
     def execute(self, query):
         if ("create table") in query:
             createTbl = r"(?:\s*)create table(?:\s*)(.*?)(?:\s*)\((?:\s*)(.*?)\);"

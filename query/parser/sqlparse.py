@@ -44,19 +44,12 @@ class parser:
         self.simpleSQL.ignore( self.oracleSqlComment )
 
     def parse(self, str):
-        print(str,"->")
+        gentokens = None
         try:
             gentokens = self.simpleSQL.parseString( str )
-            print("tokens = ",        gentokens)
-            print("tokens.command =", gentokens.command)
-            print("tokens.columns =", gentokens.columns)
-            print("tokens.tables =",  gentokens.tables)
-            print("tokens.join =",  gentokens.join)
-            print("tokens.where =", gentokens.where)
         except ParseException as err:
             print(" "*err.loc + "^\n" + err.msg)
             print(err)
-        print()
         return gentokens
 
     def test(self, str ):
