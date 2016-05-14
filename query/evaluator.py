@@ -22,7 +22,7 @@ sel.selection("students2", [['phone', 'terce32441iro']])
 from catalog.core import catalogCore
 import re
 class evaluator:
-    def exec(self, query):
+    def execQuery(self, query):
         from query.parser.sqlparse import parser
         pt = parser()
         gentokens = pt.parse(query)
@@ -38,6 +38,15 @@ class evaluator:
             sel = select()
 
             print ( "select detected")
+            conditions = []
+            if gentokens.where[0] == "where":
+                print("where detected")
+
+            for cond in gentokens.where:
+                print ( cond)
+                if isinstance(cond):
+                    print( "list detected in where")
+
             sel.selection(gentokens.tables[0], [['phone', 'terce32441iro']])
             #sel.selection("students2", [['phone', 'terce32441iro']])
 
