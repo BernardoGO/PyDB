@@ -36,7 +36,7 @@ def main():
 
 
     tblm = manager()
-    #tblm.createTable("students3", [["id", "integer"], ["phone", "string"]])
+    tblm.createTable("students2", [["id", "integer"], ["phone", "string"]])
 
 
     ctlg2 = catalogCore()

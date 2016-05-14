@@ -5,8 +5,8 @@ from storage.io import general
 from buffer.bufmgr import buffer_pool
 import storage.io
 
-
-__CATALOG_PREFIX__ = "pagemgr"
+__CATALOG_FOLDER__ = "data/"
+__CATALOG_PREFIX__ = __CATALOG_FOLDER__+ "pagemgr"
 
 __numberOfPages_IDX__ = 0
 

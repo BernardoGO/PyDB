@@ -1,5 +1,6 @@
 __author__ = 'Bernardo'
 
+__CATALOG_FOLDER__ = "data/"
 __CATALOG_PREFIX__ = "ctl"
 
 import pickle

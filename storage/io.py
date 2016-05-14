@@ -2,6 +2,7 @@ __author__ = 'Bernardo Augusto Godinho de Oliveira - @bernardogo'
 
 __PAGE_SIZE__ = 1024
 __MAX_SIZE_SEQ__ = 64
+__CATALOG_FOLDER__ = "data/"
 __PAGE_SUFFIX__ = 'page.dat'
 
 __PAGE_SIZE__ += int(__PAGE_SIZE__/__MAX_SIZE_SEQ__)
@@ -15,13 +16,13 @@ class general:
         print ("here")
 
     def readPage(self, pageId):
-        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'rb')
+        file_ = open(__CATALOG_FOLDER__ + str(pageId) + __PAGE_SUFFIX__, 'rb')
         byt = bytearray(file_.read())
         file_.close()
         return byt
 
     def initPage(self, pageId):
-        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+        file_ = open(__CATALOG_FOLDER__ + str(pageId) + __PAGE_SUFFIX__, 'wb')
 
         toBeWritten = bytearray([])  #'\0' *__PAGE_SIZE__
         for i in range(__PAGE_SIZE__):
@@ -36,7 +37,7 @@ class general:
         print(self.readPage(pageId))
 
     def writePage(self, rids, records, pageId):
-        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+        file_ = open( __CATALOG_FOLDER__+str(pageId) + __PAGE_SUFFIX__, 'wb')
 
         toBeWritten = bytearray([])  #'\0' *__PAGE_SIZE__
         for i in range(__PAGE_SIZE__):
@@ -45,7 +46,7 @@ class general:
         for x in range(int(__PAGE_SIZE__/ __MAX_SIZE_SEQ__)):
             toBeWritten[x*-1 -1] = __CONS_EMPTY_SLOT__
 
-        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+        file_ = open(__CATALOG_FOLDER__ + str(pageId) + __PAGE_SUFFIX__, 'wb')
         print(self.readPage(pageId))
 
         print(toBeWritten)
@@ -68,7 +69,7 @@ class general:
 
     def writeValue(self, rid, bytes, pageId):
         toBeWritten = self.readPage(pageId)  #'\0' *__PAGE_SIZE__
-        file_ = open(str(pageId) + __PAGE_SUFFIX__, 'wb')
+        file_ = open(__CATALOG_FOLDER__ + str(pageId) + __PAGE_SUFFIX__, 'wb')
         print(self.readPage(pageId))
 
         print(toBeWritten)

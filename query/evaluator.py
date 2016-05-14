@@ -44,7 +44,7 @@ class evaluator:
 
             for cond in gentokens.where:
                 print ( cond)
-                if isinstance(cond):
+                if isinstance(cond, list):
                     print( "list detected in where")
 
             sel.selection(gentokens.tables[0], [['phone', 'terce32441iro']])
