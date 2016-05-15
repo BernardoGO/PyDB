@@ -109,11 +109,15 @@ class pageManager:
         bfm = buffer_pool()
         print("match")
         io_s = general()
+        if(len(self.catalog) == 0):
+            print("WARNING: IT SHOULD BE LOADED HERE")
+            self.load()
+
         if(table not in self.catalog):
             print("Table does not exists -- attention")
 
 
-
+        print(self.catalog)
         print (self.catalog[table][__numberOfPages_IDX__])
         values = []
         for x in range(1, self.catalog[table][__numberOfPages_IDX__]+1):
@@ -153,10 +157,11 @@ class pageManager:
 
 
     def commit(self):
-        pickle.dump(self.catalog,  open(__CATALOG_PREFIX__  + ".dat", 'wb'))
+        pickle.dump(self.catalog,  open(__CATALOG_PREFIX__  + ".dat", 'wb'), protocol=2)
 
     def load(self):
         try:
             self.catalog = pickle.load(open(__CATALOG_PREFIX__ + ".dat", 'rb'))
-        except:
+        except Exception as e:
+            print("FAILED TO LOAD CATALOG" + str(e))
             pass

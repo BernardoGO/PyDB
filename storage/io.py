@@ -136,6 +136,8 @@ class general:
 
 
     def write(self):
+        print("write function called while it was not necessary")
+        return
         self.initPage(2)
         print(self.readPage(2))
         self.writeValue(40, "test1running", 2)
