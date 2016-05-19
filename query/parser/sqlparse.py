@@ -28,6 +28,7 @@ class parser:
             )
         tokens.joinExpression << (self.joinCondition  )
 
+
         # define the grammar
         tokens.selectStmt      << ( tokens.selectToken.setResultsName("command") +
                            ( '*' | tokens.columnNameList ).setResultsName( "columns" ) +
@@ -37,7 +38,19 @@ class parser:
                 Optional( Group( CaselessLiteral("join") + tokens.joinExpression ), "" ).setResultsName("join") +
                            Optional( Group( CaselessLiteral("where") + tokens.whereExpression ), "" ).setResultsName("where") )
 
-        self.simpleSQL = tokens.selectStmt
+        #self.valuesIter = ( self.columnRval | "," + self.columnRval)
+        self.values = tokens.LPAREN + delimitedList(self.columnRval) + tokens.RPAREN
+
+        tokens.insertStmt << (tokens.insertToken.setResultsName("command") +
+                                tokens.intoToken.setResultsName("middle") +
+                                tokens.columnNameList.setResultsName( "tables" ) +
+                                tokens.valuesToken.setResultsName("val") +
+                                self.values.setResultsName("insValues")
+
+
+                                )
+
+        self.simpleSQL =  tokens.selectStmt | tokens.insertStmt
 
         # define Oracle comment format, and ignore them
         self.oracleSqlComment = "--" + restOfLine

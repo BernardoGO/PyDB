@@ -1,4 +1,4 @@
-__author__ = 'Bernardo Augusto Godinho de Oliveira - @bernardogo'
+__author__ = 'Bernardo Godinho - @bernardogo'
 
 from query.evaluator import evaluator
 from storage.io import general
@@ -65,6 +65,7 @@ def main():
     from query.parser.sqlparse import parser
     pt = parser()
     #pt.parse("select * from x where x = 3 and y < 2")
-    eval.execQuery("select * from students2 where phone = terce32441iro")
+    eval.execQuery("insert into students2 values (\"83\", \"heuhheuue\")")
+    #eval.execQuery("select * from students2") #where phone = terce32441iro
 
 main()

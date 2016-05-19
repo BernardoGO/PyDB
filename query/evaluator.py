@@ -32,6 +32,7 @@ class evaluator:
         print("tokens.tables =",  gentokens.tables)
         print("tokens.join =",  gentokens.join)
         print("tokens.where =", gentokens.where)
+        print("tokens.values =", gentokens.insValues)
 
         if gentokens.command == "select":
 

@@ -6,8 +6,12 @@ from pyparsing import Literal, CaselessLiteral, Word, delimitedList, Optional, \
 # define SQL tokens
 command = Forward()
 selectStmt = Forward()
+insertStmt = Forward()
 selectToken = Keyword("select", caseless=True)
+insertToken = Keyword("insert", caseless=True)
 fromToken   = Keyword("from", caseless=True)
+intoToken   = Keyword("into", caseless=True)
+valuesToken   = Keyword("values", caseless=True)
 ident          = Word( alphas, alphanums + "_$" ).setName("identifier")
 columnName     = ( delimitedList( ident, ".", combine=True ) )
 columnNameList = Group( delimitedList( columnName ) )
