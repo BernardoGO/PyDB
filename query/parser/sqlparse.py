@@ -20,7 +20,7 @@ class parser:
             ( tokens.columnName + tokens.in_ + tokens.LPAREN + tokens.selectStmt + tokens.RPAREN ) |
             ( tokens.LPAREN + tokens.whereExpression + tokens.RPAREN )
             )
-        tokens.whereExpression << (self.whereCondition + ZeroOrMore(   tokens.and_ | tokens.or_ ) + tokens.whereExpression )
+        tokens.whereExpression << (self.whereCondition + Optional( ZeroOrMore(   tokens.and_ | tokens.or_ ) + tokens.whereExpression ))
 
 
         self.joinCondition = Group(
