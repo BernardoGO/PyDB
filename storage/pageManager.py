@@ -48,7 +48,7 @@ class pageManager:
         self.commit()
         strToSVX = ""
         for x in values:
-            strToSVX += x + "$"
+            strToSVX += x.replace('""', '') + "$"
         strToSVX = strToSVX[0:len(strToSVX)-1]
 
         while(True):

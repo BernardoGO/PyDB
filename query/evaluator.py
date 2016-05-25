@@ -48,8 +48,17 @@ class evaluator:
                 if isinstance(cond, list):
                     print( "list detected in where")
 
-            sel.selection(gentokens.tables[0], [['phone', 'terce32441iro']])
+            sel.selection(gentokens.tables[0], [])
             #sel.selection("students2", [['phone', 'terce32441iro']])
+
+        elif gentokens.command == "insert":
+            ins = insert()
+            iid = gentokens.insValues
+            print(type(iid))
+            print(iid)
+            print(len(iid))
+            print(iid)
+            ins.insertRecord(gentokens.tables[0], iid)
 
 
     def execute(self, query):

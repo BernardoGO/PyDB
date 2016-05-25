@@ -46,7 +46,7 @@ def main():
 
     ins = insert()
 
-    ins.insertRecord("students2", ["26", "terce32441iro"])
+    #ins.insertRecord("students2", ["26", "terce32441iro"])
     #for x in range(25, 82):
     #    ins.insertRecord("students3", [str(x), "terce3PG32323o" + str(x)])
 
@@ -65,7 +65,8 @@ def main():
     from query.parser.sqlparse import parser
     pt = parser()
     #pt.parse("select * from x where x = 3 and y < 2")
-    eval.execQuery("insert into students2 values (\"83\", \"heuhheuue\")")
-    #eval.execQuery("select * from students2") #where phone = terce32441iro
+    eval.execQuery("insert into students2 values (\"83\", \"gravado\")")
+    print("select")
+    eval.execQuery("select * from students2") #where phone = terce32441iro
 
 main()
