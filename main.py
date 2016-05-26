@@ -64,9 +64,9 @@ def main():
 
     from query.parser.sqlparse import parser
     pt = parser()
-    print(pt.parse("select * from x where x = 3 and y = 9"))
+    #print(pt.parse("select * from x where x = 3 and y = 9"))
     #eval.execQuery("insert into students2 values (\"83\", \"gravado\")")
     print("select")
-    #eval.execQuery("select * from students2 where phone = 'gravado'") #where phone = terce32441iro
+    eval.execQuery("select * from students2 where phone = 'gravado'") #where phone = terce32441iro
 
 main()
