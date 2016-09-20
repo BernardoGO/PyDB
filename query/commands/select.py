@@ -65,16 +65,17 @@ class select:
 
         for x in range(len(values)):
             for y in range(len(ctlg.catalog)):
-                val1 = values[x][0]
-                val2 = ctlg.catalog[y][0]
-                if val1 == val2:
-                    vals[y] = values[x][1]
+                print("VER: " + str(ctlg.catalog[y][0]))
+                val1 = values[x][0].replace("'", "")
+                val2 = ctlg.catalog[y][0].replace("'", "")
+                if values[x][1] == '=':
+                    if val1 == val2:
+                        vals[y] = values[x][2].replace("'", "")
+                else:
+                    print ("NO OPERATOR #322")
 
-
+        print("VALS: " + str(vals))
         x = pgmg.readValues(table, vals, function, newVals)
         return x
         print(len(x))
         #print(len(pgmg.readValues(table, vals)))
-
-
-

@@ -47,8 +47,9 @@ class evaluator:
                 print ( cond)
                 if isinstance(cond, list):
                     print( "list detected in where")
+            #working for equals only
 
-            sel.selection(gentokens.tables[0], [])
+            sel.selection(gentokens.tables[0], [gentokens.where[0][0]])
             #sel.selection("students2", [['phone', 'terce32441iro']])
 
         elif gentokens.command == "insert":
