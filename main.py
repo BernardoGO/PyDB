@@ -67,6 +67,6 @@ def main():
     #print(pt.parse("select * from x where x = 3 and y = 9"))
     #eval.execQuery("insert into students2 values (\"83\", \"gravado\")")
     print("select")
-    eval.execQuery("select * from students2 where phone = 'terceiro2221seesss'") #where phone = terce32441iro
+    eval.execQuery("select * from students2 where id = '26'") #where phone = terce32441iro
 
 main()

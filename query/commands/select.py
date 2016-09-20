@@ -66,8 +66,8 @@ class select:
         for x in range(len(values)):
             for y in range(len(ctlg.catalog)):
                 print("VER: " + str(ctlg.catalog[y][0]))
-                val1 = values[x][0].replace("'", "")
-                val2 = ctlg.catalog[y][0].replace("'", "")
+                val1 = str(values[x][0]).replace("'", "")
+                val2 = str(ctlg.catalog[y][0]).replace("'", "")
                 if values[x][1] == '=':
                     if val1 == val2:
                         vals[y] = values[x][2].replace("'", "")

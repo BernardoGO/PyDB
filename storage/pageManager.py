@@ -144,7 +144,8 @@ class pageManager:
                                 if cond[x] is None:
                                     continue
                                 else:
-                                    if cond[x] != row[x]:
+                                    if str(cond[x]) != str(row[x]):
+                                        #print ( str(cond[x]) +"-VER-"+ str(row[x]))
                                         valid = False
                                         break
 
