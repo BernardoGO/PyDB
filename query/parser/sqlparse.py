@@ -1,6 +1,6 @@
 from pyparsing import Literal, CaselessLiteral, Word, delimitedList, Optional, \
     Combine, Group, alphas, nums, alphanums, ParseException, Forward, oneOf, quotedString, \
-    ZeroOrMore, restOfLine, Keyword
+    ZeroOrMore, restOfLine, Keyword, Suppress
 
 from query.parser import tokens
 
@@ -36,7 +36,7 @@ class parser:
                            tokens.fromToken +
                            tokens.tableNameList.setResultsName( "tables" ) +
                 Optional( Group( CaselessLiteral("join") + tokens.joinExpression ), "" ).setResultsName("join") +
-                           Optional( Group( CaselessLiteral("where") + tokens.whereExpression ), "" ).setResultsName("where") )
+                           Optional( Group( Suppress(CaselessLiteral("where")) + tokens.whereExpression ), "" ).setResultsName("where") )
 
         #self.valuesIter = ( self.columnRval | "," + self.columnRval)
 
